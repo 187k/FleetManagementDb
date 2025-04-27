@@ -13,7 +13,7 @@
 
     <Window.Resources>
 
-        <ImageBrush x:Key="BackgroundImage" ImageSource="C:/Users/qwerty/Downloads/pngtree-sky-effect-pink-purple-background-image_534630.jpg" 
+        <ImageBrush x:Key="BackgroundImage" ImageSource="E:\my\desktops\rb13\bdfleet\img\pngtree-sky-effect-pink-purple-background-image_534630.jpg" 
                     Stretch="UniformToFill" Opacity="0.3"/>
 
         <SolidColorBrush x:Key="PrimaryPurpleBrush" Color="#6A35B1"/>
@@ -70,7 +70,7 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="C:/Users/qwerty/Downloads/pngtree-sky-effect-pink-purple-background-image_534630.jpg" 
+            <ImageBrush ImageSource="E:\my\desktops\rb13\bdfleet\img\pngtree-sky-effect-pink-purple-background-image_534630.jpg" 
                         Stretch="UniformToFill" Opacity="0.4"/>
         </Grid.Background>
 
