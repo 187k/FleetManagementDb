@@ -1,0 +1,121 @@
+﻿<Window x:Class="FleetManagementDb.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Управление автопарком" 
+        Height="500" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#FFF5F5F5" 
+        FontFamily="Segoe UI"
+        ResizeMode="CanMinimize">
+
+    <Window.Resources>
+
+        <ImageBrush x:Key="BackgroundImage" ImageSource="C:/Users/qwerty/Downloads/pngtree-sky-effect-pink-purple-background-image_534630.jpg" 
+                    Stretch="UniformToFill" Opacity="0.3"/>
+
+        <SolidColorBrush x:Key="PrimaryPurpleBrush" Color="#6A35B1"/>
+        <SolidColorBrush x:Key="DarkPurpleBrush" Color="#4A148C"/>
+        <SolidColorBrush x:Key="LightPurpleBrush" Color="#9C64FF"/>
+        <SolidColorBrush x:Key="CardBackgroundBrush" Color="White"/>
+        <SolidColorBrush x:Key="TextBrush" Color="#FF212121"/>
+        <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="#6A35B1"/>
+        <SolidColorBrush x:Key="HeaderTextBrush" Color="White"/>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryPurpleBrush}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="Margin" Value="0,12,0,0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="240"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                CornerRadius="21">
+                            <ContentPresenter x:Name="contentPresenter" 
+                                            Content="{TemplateBinding Content}"
+                                            HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center" 
+                                            Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource LightPurpleBrush}"/>
+                                <Setter TargetName="border" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="{StaticResource DarkPurpleBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="C:/Users/qwerty/Downloads/pngtree-sky-effect-pink-purple-background-image_534630.jpg" 
+                        Stretch="UniformToFill" Opacity="0.4"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" 
+                Background="{StaticResource HeaderBackgroundBrush}" 
+                Padding="20"
+                CornerRadius="0,0,8,8">
+            <TextBlock Text="УПРАВЛЕНИЕ АВТОПАРКОМ" 
+                       FontSize="20" 
+                       FontWeight="SemiBold" 
+                       Foreground="{StaticResource HeaderTextBrush}" Margin="298,0,-298,0"/>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+
+            <StackPanel x:Name="MenuPanel" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center"
+                        Width="300">
+                <Border Background="{StaticResource CardBackgroundBrush}"
+                        CornerRadius="8"
+                        Padding="30">
+                    <StackPanel>
+                        <TextBlock Text="Выберите раздел:" 
+                                   FontSize="16" 
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextBrush}"
+                                   Margin="0,0,0,20"
+                                   HorizontalAlignment="Center"/>
+
+                        <Button Content="Транспортные средства" 
+                                Click="ShowVehiclesPage_Click"/>
+                        <Button Content="Водители" 
+                                Click="ShowDriversPage_Click"/>
+                        <Button Content="Маршруты" 
+                                Click="RoutesPageButton_Click"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

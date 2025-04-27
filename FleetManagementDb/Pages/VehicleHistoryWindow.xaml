@@ -1,0 +1,73 @@
+﻿<Window x:Class="FleetManagementDb.Pages.VehicleHistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FleetManagementDb.Pages"
+        mc:Ignorable="d"
+        Title="История транспортного средства" 
+        Height="500" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#FFF5F5F5"
+        FontFamily="Segoe UI">
+
+    <Window.Resources>
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF212121"/>
+            <Setter Property="BorderBrush" Value="#FFE0E0E0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowBackground" Value="White"/>
+            <Setter Property="AlternatingRowBackground" Value="#FFF5F5F5"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="SelectionUnit" Value="FullRow"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#FF424242"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderBrush" Value="#FF616161"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#FF212121" Padding="15">
+            <TextBlock Text="{Binding VehicleInfo}" 
+                       Foreground="White" 
+                       FontSize="16"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <DataGrid x:Name="VehicleHistoryDataGrid" AutoGenerateColumns="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата отправления" Binding="{Binding StartDate, StringFormat={}{0:dd.MM.yyyy}}" Width="120"/>
+                <DataGridTextColumn Header="Дата прибытия" Binding="{Binding EndDate, StringFormat={}{0:dd.MM.yyyy}}" Width="120"/>
+                <DataGridTextColumn Header="Начальная локация" Binding="{Binding StartLocation}" Width="*"/>
+                <DataGridTextColumn Header="Конечная локация" Binding="{Binding EndLocation}" Width="*"/>
+                <DataGridTextColumn Header="Расстояние (км)" Binding="{Binding Distance}" Width="100"/>
+                <DataGridTextColumn Header="Водитель" Binding="{Binding Drivers.FullName}" Width="180"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
