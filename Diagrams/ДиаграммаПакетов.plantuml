@@ -1,0 +1,44 @@
+@startuml Packages
+package "FleetManagement.WPF" {
+  package "Views" {
+    [MainWindow]
+    [VehicleView]
+    [DriverView]
+    [RouteView]
+  }
+  
+  package "ViewModels" {
+    [MainViewModel]
+    [VehicleViewModel]
+    [DriverViewModel]
+    [RouteViewModel]
+  }
+}
+
+package "FleetManagement.Core" {
+  package "Services" {
+    [IVehicleService]
+    [IDriverService]
+    [IRouteService]
+  }
+  
+  package "Models" {
+    [Vehicle]
+    [Driver]
+    [Route]
+  }
+}
+
+package "FleetManagement.Data" {
+  package "Repositories" {
+    [IVehicleRepository]
+    [IDriverRepository]
+    [IRouteRepository]
+  }
+  
+  [AppDbContext]
+}
+
+"FleetManagement.WPF" --> "FleetManagement.Core"
+"FleetManagement.Core" --> "FleetManagement.Data"
+@enduml

@@ -1,0 +1,25 @@
+@startuml Layers
+rectangle "WPF Client" {
+  [Views]
+  [ViewModels]
+}
+
+rectangle "Business Logic" {
+  [Services]
+}
+
+rectangle "Data Access" {
+  [Repositories]
+  [DbContext]
+}
+
+rectangle "Database" {
+  [SQL Server]
+}
+
+[Views] --> [ViewModels]
+[ViewModels] --> [Services]
+[Services] --> [Repositories]
+[Repositories] --> [DbContext]
+[DbContext] --> [SQL Server]
+@enduml
