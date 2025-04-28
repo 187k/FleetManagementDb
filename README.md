@@ -57,7 +57,7 @@
 1. Клонируйте репозиторий:
 
 ```
-git clone https://github.com/ваш-аккаунт/название-репозитория.git
+git clone https://github.com/187k/FleetManagementDb.git
 ```
 2. Откройте проект в Visual Studio.
 
