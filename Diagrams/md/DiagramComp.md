@@ -1,4 +1,3 @@
-```mermaid
 componentDiagram
     component "FleetManagementApp" {
         component "VehicleModule" {
@@ -57,4 +56,3 @@ componentDiagram
     [UserRepository] --> [AppDbContext]
 
     [AppDbContext] --> [Database]
-```
