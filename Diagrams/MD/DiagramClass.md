@@ -1,4 +1,3 @@
-
 classDiagram
     class Vehicle {
         +int Id
